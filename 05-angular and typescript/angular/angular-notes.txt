@@ -1,0 +1,22 @@
+What is angular?
+    -Angular is a frontend framework for building client
+    side applications. It utilizes HTML, CSS, and
+    javascript/typescript. We commonly see Angular
+    written in typescript.
+    -Angular is component based and uses modules; each
+    component represents a building block for the
+    view (think MVC).
+
+Angular JS vs Angular?
+    Angular JS is Angular's version 1.
+    BUT....in Angular 2+ there have been SO many changes
+    implemented that it feels like an entirely different
+    language.
+    We will be using Angular 7. SO....if your google
+    search returns search results for "Angular JS" then
+    you had better be more specific.
+
+To create a new angular project
+   "ng new yourProjectName"
+
+

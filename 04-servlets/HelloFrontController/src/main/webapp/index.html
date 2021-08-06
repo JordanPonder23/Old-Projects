@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>FC Design Pattern</title>
+
+<link rel="stylesheet" type="text/css" href="resources/css/mystyles.css"/>
+</head>
+<body>
+	<div class="login-container">
+		<!-- FRONT CONTROLLER EXAMPLE -->
+		<h3> Front Controller Design Pattern Example</h3>
+		
+		<form method="POST" action="login.do"> <!-- You can see the parameters in the url if you change this to a GET -->
+			<p>Please log in, arigato!</p>
+			<input placeholder="enter username" name="username" /><br /> <input
+				placeholder="enter password" name="password" /> <br /> <input
+				type="submit" value="Login" />
+		</form>
+
+		<form method="POST" action="naughty.do">
+			<p>A URI that the RequestHelper doesn't recognize</p>
+			<input type="submit" value="Naughty Button" />
+		</form>
+		
+		
+		<!-- AJAX SERVLET DEMOS -->
+		<form method="POST" action="dannyboy.json">
+			<p>Json servlet button</p>
+			<input type="submit" value="Find Danny Boy" />
+		</form>
+
+		<form method="POST" action="aster.json">
+			<p>Json servlet button</p>
+			<input type="submit" value="Find Aster" />
+		</form>
+	</div>
+</body>
+</html>

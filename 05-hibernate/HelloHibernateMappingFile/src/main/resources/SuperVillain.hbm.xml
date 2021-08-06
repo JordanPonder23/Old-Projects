@@ -1,0 +1,30 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.example.model">
+	<class name="SuperVillain" table="Super_Villain">
+		<!-- THIS IS OPTIONAL -->
+		<meta attribute="description">
+			Describe some stuff or something
+		</meta>
+
+		<!-- PRIMARY KEY -->
+		<id name="svillId" type="int" column="svill_id">
+			<generator class="native" />
+		</id>
+
+		<!-- PROPERTIES -->
+		<property name="name" type="string">
+			<column name="name" not-null="true" unique="true" />
+		</property>
+		<property name="superpower" column="superpower" type="string" />
+		<property name="bounty" column="bounty" type="int" />
+	</class>
+
+</hibernate-mapping>     
+        
+        
+        
+        
+        

@@ -1,0 +1,25 @@
+@charset "ISO-8859-1";
+
+#TopMain{
+	background: #800000; 
+	height: 100px; 
+	width: auto; 
+	border: outset; 
+	border-width: 10px; 
+	border-color: black; 
+	border-bottom-left-radius: 215px;
+	border-bottom-right-radius: 215px;
+	 min-width: 1319px;
+}
+.col-sm{
+	background: #FFF8DC;
+}
+body{
+	 background:#808080;
+}
+#Welcome{
+	font-size: 40px; 
+	color: white; 
+	 font-family: 'Pathway Gothic One', sans-serif;
+	 margin-left: 20px; 
+}

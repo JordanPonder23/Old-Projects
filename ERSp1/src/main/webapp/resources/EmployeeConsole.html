@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee</title>
+<link rel="stylesheet type=" text/css" href="css/empConStyle.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<script type="text/javascript" src="javascripts/EmployeeJS.js">
+	
+</script>
+
+</head>
+<body>
+	<div class="container-fluid" id="higherHeader">
+		<img src="css/ourguys2.jpg" alt="Troop is family" class="imageFix"
+			id=shiftI> <img src="css/ourguys3.jpg" alt="Troop is family"
+			class="imageFix" id="shiftI1"> <img src="css/ourguys4.jpg"
+			alt="Troop is family" class="imageFix" id="shiftI2"> <img
+			src="css/ourguys5.jpg" alt="Troop is family" class="imageFix"
+			id="shiftI3"> <img src="css/ourguys6.jpg" alt="Troop is family"
+			class="imageFix" id="shiftI4">
+	</div>
+	<div class="container-fluid" id="greetST">
+		Welcome, <i>  <span id="greeter"></span></i> <br>~ <span style="font-size: 12px;">
+			You can, either, view your old tickets and/ or create a new ticket
+			today! An overseer will take a look shortly to review the validity of
+			your submission(s)! </span>
+	</div>
+	<div id="spasil"><b id="fix">
+	<form method='Post' action='logout.ms' id="formTik">
+	<input id="login" type ='submit' role='button' value='Log-out' /></b></div>
+	</form>
+	<div class="container px-lg-5">
+		<br> <br>
+		<b><div  class="row mx-lg-n5" id="descBox">
+			
+		</div></b>
+		<div class="row mx-lg-n5" id="column">
+
+			<div class="col py-3 px-lg-5 border bg-light">
+				<button type="button" class="btn btn-primary btn-lg"
+					id="createNewTicket" onclick="showForm()">Create New
+					Ticket</button> 
+				<div id="hiddenTikForm">
+					<br>
+					<br>
+					<form method='Post' action='sendTicket.ms' id="formTik">
+					<input type="text" name="nameID" style="display: none;" id="name"/> 
+					<input type='submit' value='Submit Ticket'
+						class='btn btn-primary btn-lg active' id='buttonAdjustcolor2'
+						role='button' aria-pressed='true' />
+						<p>Enter the best matching "expense type" so that we may
+							better serve you.</p>
+
+						<select name="expenseType">
+							<option value="1">Psychological</option>
+							<option value="2">Choke-related</option>
+							<option value="3">Food/ Shelter</option>
+							<option value="4">Equipment</option>
+							<option value="5">Misc and Missiles</option>
+							<option value="6">That which never happened..</option>
+						</select> <br> <br>
+						<p>Enter the expense amount:</p>
+
+						<input type='text' name='Expense'
+							placeholder='Enter expense amount' /><br>
+					</form>
+					<br>
+					<p>
+						Please write a brief description of the expense. <b>(250
+							Characters MAX)</b>
+					</p>
+
+					<textarea name="desc" form="formTik">Enter text here...</textarea>
+					<br> 
+						<br>
+				</div>
+			</div>
+			
+			<div class="col py-3 px-lg-5 border bg-light">
+			<div id="menuFloat">
+			<button class="btn btn-primary btn-lg" id="Top" onclick="cycleForward('scroll0')" style="display:none;"> Top</button>
+<!-- 			<br> -->
+<!-- 			<button class="btn btn-primary btn-lg" id="PrevTicket" onclick="prev()"> Prev</button> -->
+					<br>
+					<button class="btn btn-primary btn-lg" id="NextTicket" onclick="next()"> Next</button>
+					<br>
+					
+			</div>
+		<button type="button" class="btn btn-primary btn-lg"
+					id="CurrentTickets" onclick="myTickets()"> Show Current Tickets </button>
+					<br>
+					
+					<div style="display: none; background-image:  linear-gradient(to right, white, silver, rgba(0, 0, 0, .5));" id="ticketSpot">
+						<ul id="ticketList">
+						
+						</ul>
+					 </div>
+			
+			</div>
+		</div>
+		
+	</div>
+
+</body>
+</html>

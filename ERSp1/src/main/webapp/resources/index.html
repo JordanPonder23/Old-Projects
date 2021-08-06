@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>New EmpireRS User</title>
+<link rel="stylesheet type=" text/css" href="css/newERSstyle.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+
+
+</head>
+<body style="background: #808080;">
+	<div style="background: #800000; border-bottom: 4px inset;">
+		<div id="newERSTop"></div>
+		<div id="spasil">
+			<b id="fix">
+				<a href="/ERSp1/resources/MainPage.html"> <input id="login" type='submit' role='button' value='Back' /></a>	
+			</b>
+		</div>
+		<br>
+		<div class="row no-gutters" id="introAdjust">
+			<div class="col-12 col-sm-6 col-md-8">
+				<div>
+					<p>
+						Welcome, new employee to the Galactic Empire Family!! The Republic
+						fell at the hands of the mighty Palpatine, and under his control
+						he created the first Galactic Empire, with the boast that it would
+						last a thousand years. To be an Imperial means to bring Order and
+						Peace to the galaxy. As you engage in your various duties, you
+						would find that Galactic control is <b>NOT</b> free! Here, the
+						Lord Vader, out of pure necessity has ordered the establishment of
+						a Empire Reimbursement System that you lowly servants of his whim
+						are afforded the privilege of this utility. Use discretion when
+						ticketing your perceptions of what the empire "owes" you and
+						always remember that it is a pure honor and personal glory to
+						participate in your facate as it is..
+					</p>
+				</div>
+			</div>
+			<div class="col-6 col-md-4" id="adjustSignUp">
+				<br>
+				<p>First, Register yourself as an employee</p>
+				<form method="Post" action="here.ms">
+					<p>Enter your EID (Empire Identification #) to register
+						yourself in our reimbursement (this should have been given to you
+						by your HR representative - if this is NOT the case, then contact
+						a Finance Manager, as Lord Vader's patience is fleeting)</p>
+					<input type="text" name="humanName" placeholder="Create username" />
+					<input type type="text" name="Eid" placeholder="Enter EmpireID" />
+					<br> <br> <input type="submit"
+						value="Click here to sign up"
+						class="btn btn-primary btn-lg active" id="buttonAdjustcolor"
+						role="button" aria-pressed="true" />
+				</form>
+				<br>
+				<form method="Post" action="SignInEmployee.ms">
+					<h3>Sign in here</h3>
+					<input type="text" name="signName" placeholder="Enter username" />
+					<input type type="password" name="passwordSign"
+						placeholder="Enter password" /> <br> <br> <input
+						type="submit" value="Sign In"
+						class="btn btn-primary btn-lg active" id="buttonAdjustcolor"
+						role="button" aria-pressed="true" />
+				</form>
+			</div>
+		</div>
+		<br>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+@charset "ISO-8859-1";
+
+/* this is for all the pages that are generated via 'print out' */
+/* temp Forms for admin page */
+body {
+	background-image: url("../css/darthpride.jpg");
+	z-index: 1;
+	repeat: no-repeat;
+	background-size: 40%;
+}
+#EmptyForm2 {
+	background-color: red;
+	width: 100px; 
+	height: 50px; 
+}
+
+#results {
+	background-color: #800000;
+	border: 1px outset;
+	border-radius: 10px;
+	z-index: 100000;
+	padding: 40px;
+	position: absolute;
+	left: 230;
+	right: 230;
+	top: 310;
+	bottom: 310;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+/* temp form for password creation  */
+
+#colorfix{
+	color: white;
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<context:annotation-config/>
+	<context:component-scan base-package="com.example"/>
+	
+	<tx:annotation-driven/>
+
+	<!-- DATASOURCE -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+			<property name="url"
+				value="jdbc:oracle:thin:@revychan.c4wt8faaxlgp.us-east-2.rds.amazonaws.com:1521:orcl"/>
+			<property name="username" value="pokemondb"/>
+			<property name="password" value="p4ssw0rd"/>
+	</bean>
+	<!-- SESSION FACTORY -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>	
+		<property name="packagesToScan" value="com.example.model"/>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- TRANSACTION MANAGER
+		This bean is responsible for managing your transactions (big surprise)
+		and ALSO managing your contextual sessions.
+		What is a contextual session?
+			Sessions with information specific to that user. They make it so
+			that each user sees only THEIR information.-->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>	
+	</bean>
+
+</beans>
+
+
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        <!--THIS is called data binding. One way data binding binds
+            an HTML element to a TS value. Information flows from
+            the TS variable to the HTML element.
+            Essentially,  "HTML element = TS value;"
+        Specifically we are using interpolation to acheive one way
+            data binding
+        interpolation uses the     {{}}      syntax-->
+        {{pageTitle}}
+    </div>
+    <div class="panel-body">
+        <div class='row'>
+            <div class='col-md-2'>Filter by: </div>
+            <div class='col-md-4'>
+                <!-- THIS is an example of two way binding.
+                it uses the     [()]   syntax  (apple in a box).
+                To set up two way binding you need ngModel that
+                is apart of the "FormsModule" module.
+            
+                In two way binding the model and view are bound to
+                each other. If one changes then it forces the other
+                two changes (unlike one way binding)-->
+                <input type='text' [(ngModel)]='listFilter'/> 
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-md-6'>
+                <h3>Filtered by: {{listFilter}}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- OUR TABLE HTML -->
+<div class='table-responsive'>
+    <table class='table' *ngIf='superheroes && superheroes.length'>
+        <thead>
+            <tr>
+                <th>
+                    <!--This is an example of event binding, it uses
+                        the      ()=''      syntax
+                    Event binding binds an HTML event to a typescript method-->
+                    <button class='btn btn-primary' (click)='toggleImage()'>
+                        {{showImage ? 'Hide': 'Show'}} Image
+                    </button> 
+                </th>
+                <th>Superhero</th>
+                <th>Rank</th>
+                <th>Ability</th>
+                <th>Organization</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--this is a "structural directive". We call it a
+            structural directive because it has the potential
+            to alter the ENTIRE structure of the html page
+        
+            the commonly used structural directives are
+            *ngFor, *ngIf, *ngSwitch, *ngDefault-->
+            <tr *ngFor='let temp of filteredSuperheroes'>
+                <td>
+                    <!-- this is an example of property binding, it uses
+                    the      [ ]=''     syntax on an attribute.
+                    Property binding binds an HTML attribute to a value
+                    in TS -->
+                    <img *ngIf='showImage' [src]='temp.image'
+                        [title]='temp.name' [style.width.px]='imageWidth'
+                        [style.margin.px]= 'imageMargin'>
+                </td>
+                <td>{{temp.name}}</td>
+                <td>
+                    <!-- this is an example of a child component being used.
+                    and ALSO we see an example of an attribute directive -->
+                    <app-star [rank]='temp.rank'
+                        (rankClick)='onRankClick($event)'></app-star>
+                </td>
+                <td>{{temp.ability | prepend: 'Utility: '}}</td>
+                <!-- Pipes transform data before the data is
+                    displayed this is the pipe operator.
+                Pipes use the     |     syntax -->
+                <td>{{temp.organization | lowercase}}</td>
+            </tr>
+        </tbody>
+    </table> 
+
+</div>

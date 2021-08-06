@@ -1,0 +1,60 @@
+@charset "ISO-8859-1";
+
+#newERSTop{
+	background: black; 
+	width: auto; 
+	height: 170px; 
+	border:solid; 
+	border-width: 2px; 
+	border-bottom-right-radius: 400px;
+}
+#adjustSignUp{
+	margin-right: 90px; 
+	background: #FFF8DC;
+	border:outset; border-width: 2px; border-color: tan; 
+	 border-bottom-right-radius: 400px;border-top-right-radius: 400px;
+	padding: 10px; 
+	  min-width: 700px;	
+}
+#introAdjust{
+	margin-left: 100px; 
+	padding: 20px; 
+	background: #FFF8DC;
+	border-bottom-left-radius: 40px;
+	border-top-left-radius: 40px;
+	border-top-right-radius: 400px;
+	border-bottom-right-radius: 20px;
+}
+#buttonAdjustcolor  {
+	background-color:  #800000;
+}
+#buttonAdjustcolor:hover{
+	background-color: #408080;
+	
+}
+#login{
+	border: groove; 
+	border-color: gold;
+	border-width: 3.5px; 
+	float: left; 
+	width: 100px; 
+	padding-right: 8px;
+	height: 55px; 
+	border-bottom-right-radius: 99px; 
+	align-text: top;
+background-image:  linear-gradient(to top right, #800000 , silver, white);
+	 font-family: Impact,Haettenschweiler;
+	 font-size: 22.3px; 
+	opacity: 0.68;
+	z-index: 1000;
+	padding-top: -6px;
+	text-align: left;
+}
+#login:hover{
+	color: white;
+	opacity: 1;
+	background-image:  linear-gradient(to top right, #800000 , silver);
+	 font-size: 26.3px; 
+	 border-color: #C08081;
+	 border-width: 6px; 
+}

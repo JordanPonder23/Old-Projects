@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Empire ERS Administration Console</title>
+<script type="text/javascript" src="javascripts/table.js">
+	
+</script>
+<link rel="stylesheet type=" text/css" href="css/darthAdmin.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<!-- 	my javascript file ---v-v--v -->
+<!-- <script type="text/javascript" src="./javascripts/AdminConsoleJs.js"></script> -->
+<!-- View Button -->
+<!-- <script type="text/javascript" -->
+<!-- 	src="./javascripts/ViewAllTicketsJavaScript.js"></script> -->
+</head>
+<!-- <div style='background: rgba(200, 54, 54, 0.5); z-index: 1000;'> -->
+<body
+	style='background-image: linear-gradient(to right, rgba(0, 0, 0, .5), white, #800000, rgba(0, 0, 0, .78));'>
+	<div>
+
+		<div class='container-fluid' id='darthAdmin'
+			style='padding-left: 40px; margin-left: 20px;'>
+			Welcome, Darth Admin<br> <img src="css/friendlypalp.jpg"
+				alt='Boss picture' id='boss'> <span id='quotepalp'> <i>
+					`` We love our employees who do not disapoint us! `` <span>
+						<b>~ Palpatine</b>
+				</span>
+			</i></span>
+		</div>
+		<!-- 			<div id='TicketQuery'><a href='http://localhost:9007/ERSp1/resources/AdminConsole.html' style='float: right; margin-right: 20px; '>(x)</a> -->
+		<!-- 			<br> -->
+		<!-- 				================================================================================== -->
+		<!-- 				=-Ticket#-===-Expense Amount-====-Submitted On-====-Submitted By-====-Description-===-Status-====-Resolver-= -->
+
+		<!-- 				________________________________________________________________________________________________________________________________________ -->
+		<!-- 				<br> -->
+
+		<!-- 			</div>       z-index: -1; position: relative;     -->
+		<div id="spasil">
+			<b id="fix">
+				<form method='Post' action='adminLogout.ms' id="formTik">
+					<input id="login" type='submit' role='button' value='Log-out' />
+			</b>
+		</div>
+		</form>
+		<br>
+		<div
+			style='background: #808080; margin: 40px; border: 1.75px outset; border-color: #800000; border-radius: 90px;'
+			id='marginFix'>
+			<div class="container"
+				style='background: #FFF8DC; padding: 20px; border: 2px inset; border-color: #808080; border-radius: 5px;'>
+
+
+				<div class='row'>
+					<div class='col'>
+
+						<form method='Post' action='searchByTicket.ms' id='loginFormAdmin'>
+							<p>Search Ticket by Number</p>
+							<input type='text' name='Number'
+								placeholder='Enter Ticket Number' /> <br>
+							<button type='submit' class='btn btn-primary btn-lg active'
+								id='buttonAdjustcolor'>Search</button>
+						</form>
+						<br>
+					</div>
+					<div class="col-6">
+
+						<p>View Un-assigned Tickets</p>
+						<button type='submit' class='btn btn-primary btn-lg active'
+							id='buttonAdjustcolor1' aria-pressed='true'
+							onclick='revealTable()'>View</button>
+						<br>
+						<div class='container' id='ticketsDisplay'>
+							<div class='row'>
+								<div class='col-sm'>
+									<div class='col'>
+										<div>
+											<table>
+												<thead>
+													<tr>
+														<th class='ticketHed'>TicketID</th>
+														<th class='ticketHed'>Status</th>
+														<th class='ticketHed' id='extraInch'>Details</th>
+													</tr>
+												</thead>
+												<tbody id='AllTicketsView'>
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+								<div class='col-sm'>
+									<div class='col'>
+										<div id='ticketDetails'
+											style='display: none; background: silver; padding: 10px; width: 290px;'>
+
+											<div id='ticketTitle'></div>
+											<div id='ticketSubmitted'></div>
+											<div>---------</div>
+											<div id='ticketOwnerAndAmount'></div>
+											<div>---------</div>
+											<div id='ResolverAndStatus'></div>
+											<button id='close' onclick='closeTicket()'>Close</button>
+											<button id='update' onclick='updateTicket()'>Update</button>
+											<form method='Post' action='updateTicket.ms' id='changeForm'
+												style='display: none;'>
+												<input type='text' name='hiddenTikID' id='TikID'> </input>
+												Change Reimbursement Amount: <input type='text'
+													name='expAmnt' placeholder='$0.00'> <br>
+												Assign a different Overseer: <input type='text' name='newOS'
+													placeholder='Overseer EmployeeID'> <input
+													type='submit' value='Submit'>
+											</form>
+
+										</div>
+									</div>
+								</div>
+								<div class='col-sm'>
+									<div class='col' id='resolversShow'>
+										<button onclick='populateResolvers()' id='resolversButton'
+											style='background: red; color: black; border-radius: 5px; font-family: impact;'>See
+											Available Resolvers</button>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+					<div class='row' id="tweekRow">
+						<div class='col'>
+							
+						</div>
+						<div class='col-5' style="color: #FFF8DC;">```````````````</div>
+						<div class='col' style="color: tan;">`</div>
+					</div>
+					<div class='row'>
+						<div class='col'>
+				
+						</div>
+
+
+					</div>
+				</div>
+				<div class='container'
+					style='background: #FFF8DC; padding: 20px; border: 2px inset; border-color: #808080; border-radius: 5px;'>
+
+
+					<div class='container'>
+						<div class='row'>
+							<div class='col-sm'>
+								<button type='button' class='btn btn-primary btn-lg active'
+									id='OverseerCreate' onclick='ShowOverseerForm()'>Hire
+									New Overseer</button>
+								<button type='button' class='btn btn-secondary btn-sm'
+									id='EmptyForm' onclick='hideOverseerForm()''>Cancel
+									Promotion</button>
+								<div id='OverseerForm'>
+									<form method='Post' action='createOverseer.ms'
+										id='OverseerFormRl'>
+										<br>
+										<p>
+											<b>Fill out the Below form hit hire to commit a new
+												Overseer to service!</b>
+										</p>
+										<p>
+											<i> (~The Overseer chosen must already exist in our
+												system as an employee~) </i>
+										</p>
+										<input type='text' name='FirstName'
+											placeholder='Enter Overseer`s first name' /><br> <br>
+										<input type='text' name='LastName'
+											placeholder='Enter Overseer`s last name' /><br> <br>
+										<input type='text' name='Email'
+											placeholder='Enter Overseer`s email' /><br> <br>
+										<p>
+											<b> If you have the Storm Trooper ID, you need only enter
+												this value to hire them as a Financial Overseer</b>
+										</p>
+										<input type='text' name='STID' placeholder='Enter the `STID`' />
+										<br> <br> <input type='submit'
+											value='Promote Overseer '
+											class='btn btn-primary btn-lg active' id='buttonAdjustcolor'
+											role='button' aria-pressed='true' />
+									</form>
+								</div>
+							</div>
+							<div class='col-sm'>
+								<button type='button' class='btn btn-primary btn-lg active'
+									id='EmpCreate' onclick='showEmployeeForm()'>Manually
+									Enter Employee</button>
+								<div id='EmployeeForm'></div>
+
+								<button type='button' class='btn btn-secondary btn-sm'
+									id='EmptyForm2' onclick='hideEmployeeForm()'>Cancel
+									Employee Entry</button>
+								<div id='EmployeeForm1'>
+									<form method='Post' action='enterEmployee.ms'
+										id='EmployeeFormID'>
+										<br>
+										<p>
+											<b>New StormTroopers ( or other Empire employees) need to
+												entered into our Reimbursement system.</b>
+										</p>
+										<input type='text' name='FirstName'
+											placeholder='Enter Employee' s first name' /><br> <br>
+										<input type='text' name='LastName'
+											placeholder='Enter Employee`s last name' /><br> <br>
+										<input type='text' name='Email'
+											placeholder='Enter Employee`s email' /><br> <br> <br>
+										<br> <input type='submit' value='Enter Employee'
+											class='btn btn-primary btn-lg active' id='buttonAdjustcolor2'
+											role='button' aria-pressed='true' />
+									</form>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='container' id='Notice'
+					style='background: #FFF8DC; padding: 20px; border: 2px inset; border-color: #808080; border-radius: 5px;'>
+					<h2>Emails to send:</h2>
+					<br>
+					<button type='button' class='btn btn-primary btn-lg active'
+						id='Reveal' onclick='UserList()'>Reveal Workload</button>
+					<br>
+					<div id='LstUsers'>
+
+
+						<div class='row'>
+							<div class='col'>
+								<ul id='addHere'>
+								</ul>
+							</div>
+							<div class='col'>
+								<ul id='addHere2'>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

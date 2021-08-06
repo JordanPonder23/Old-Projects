@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Servlet Demo</title>
+
+<link rel="stylesheet" type="text/css" href="./resources/css/mystyles.css"/>
+</head>
+<body>
+	<div class="supervillain-container">
+		<h1> Welcome to SuperVillain Servlets</h1>
+		<p> Where all minions serve their overlords~!</p>
+		
+		<!-- DIRECT SERVLET EXAMPLES -->
+		<form method="GET" action="dirserv"> 
+		<!-- action="http://localhost:9001/HelloServlets/localhostthingamabob" -->
+		<!--try THIS action in the form    action="https://www.google.com/" -->
+			<p>Direct Servlet, GET</p>
+			<input type="submit" value="Direct Text Response"/>
+		</form>
+		<form method="POST" action="dirserv">
+			<p>Direct Servlet, POST</p>
+			<input type="submit" value="Direct JSON Response"/>
+		</form>
+		
+		<!-- INDIRECT SERVLET EXAMPLES -->
+		<form method="GET" action="indirserv">
+			<p>Indirect Servlet, GET</p>
+			<input type="submit" value="Redirect Response"/>
+		</form>
+		<form method="POST" action="indirserv">
+			<p>Indirect Servlet, POST</p>
+			<input type="submit" value="Forward Response"/>
+		</form>
+		
+		<!-- SESSION SERVLET EXAMPLES -->
+		<form method="get" action="sesserv">
+			<p>Session Servlet, GET</p>
+			<input type="submit" value="Push Danny Boy to the session"/>
+		</form>
+		<form method="get" action="helpersesserv">
+			<p>Helper Session Servlet, GET</p>
+			<input type="submit" value="Obtain a villain from the session"/>
+		</form>
+		<form method="post" action="sesserv">
+			<p>Session Servlet, POST</p>
+			<input type="text" name="name" placeholder="name"/><br>
+			<input type="text" name="superpower" placeholder="superpower"/><br>
+			<input type="number" name="bounty" placeholder="value of bounty ($)"/><br>
+			
+			<input type="submit" value="Push a new villain to the session"/>
+		</form>
+		
+		<form method="GET" action="sesserv">
+			<p>Session Servlet, GET. But we copy & pasted
+				the form example from the post</p>
+			<input type="text" name="name" placeholder="name"/><br>
+			<input type="text" name="superpower" placeholder="superpower"/><br>
+			<input type="number" name="bounty" placeholder="value of bounty ($)"/><br>
+			
+			<input type="submit" value="Push a new villain to the session"/>
+		</form>
+	</div>
+</body>
+</html>

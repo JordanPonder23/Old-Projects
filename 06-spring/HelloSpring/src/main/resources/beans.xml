@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- This is a spring bean, any POJO that spring manages for you
+	Bean Wiring is when you're telling spring to manage an object(s) for you,
+	using the configuration file. The SCOPES of a spring bean are: singleton,
+	prototype, request, session, globalSession.
+		-Singleton (the default) tells spring to ONLY ever make one instances
+			of that object.
+		-Prototype tells spring that whenever an object asks for that bean,
+			then spring will create a new instance of that bean.
+		-Request says that a new instance of that bean will be created 
+			for every new request.
+		-Session says that a new instance of that bean will be created
+			for every new session.
+		-Global session a new instance of that bean will be created for every
+			session factory. -->
+	<!-- <bean name="VillainDao007" scope="singleton" class="com.example.repository.VillainDaoImpl"/> -->
+		
+	<!-- SETTER INJECTION -->	
+	<!-- <bean name="villServ009" class="com.example.service.VillainServiceImpl">
+		<property name="villainDao" ref="VillainDao007"></property>
+		IF YOU HAVE MORE THAN ONE DEPENDENCY YOU CAN LIST MORE
+		<property name="otherProperty" ref="otherProperty"/>
+	</bean> -->
+	
+	<!-- CONSTRUCTOR INJECTION -->
+	<!-- <bean name="villServ009" class="com.example.service.VillainServiceImpl">
+		<constructor-arg index="0" ref="VillainDao007"/>
+		<constructor-arg index="1" type="int" value="5"/>
+	</bean>
+	IF YOU WANT TO USE MULTIPLE CONSTRUCTOR FOR DIFFERENT BEAN INSTANCES
+	<bean name="villServ0010" class="com.example.service.VillainServiceImpl">
+		<constructor-arg index="0" ref="VillainDao007"/>
+	</bean> -->
+
+	<!-- AUTOWIRING
+		"no" autowiring means spring will not autowire. This is also the default.
+		"byType" means Spring will autowire by looking at the class' property
+			datatypes, then matching that to beans in the IoC container. It
+			uses setter injection to inject the beans.
+		"constructor" work similar to byType, except it uses a constructor with
+			the most distinct dependencies, it then matches the types to beans
+			in the IoC container.
+		"byName" looks at the class' property variable names and finds beans
+			in the container with the same names. It uses setters to inject
+			the beans.
+	 -->
+	<bean name="otherBean" class="com.example.model.demoClass"/>
+	<bean name="villainDao" class="com.example.repository.VillainDaoImpl"
+		autowire="byName"/>
+	<!-- If you need to make another bean of the SAME datatype you could do it
+	like this -->
+	<!-- <bean name="villServ009" class="com.example.service.VillainServiceImpl"
+		/> -->
+	
+		
+
+	<!-- AUTOWIRED ANNOTATION, without component scan -->
+	<!-- <bean name="VillainDao007" class="com.example.repository.VillainDaoImpl"/>
+	<bean name="villServ009" class="com.example.service.VillainServiceImpl"/> -->
+	
+	<context:annotation-config/>
+	<!-- <context:component-scan base-package="com.example"/>
+	<context:component-scan base-package="com.example.service"/> -->
+</beans>

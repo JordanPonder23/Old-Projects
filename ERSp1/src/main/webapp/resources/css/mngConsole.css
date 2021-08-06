@@ -1,0 +1,45 @@
+@charset "ISO-8859-1";
+body{
+	background-color: black; 
+}
+.container-fluid{
+	background: #800000;
+	
+}
+#loginFormAdmin{
+	background: #FFF8DC;
+	margin-right: 1250px; 
+	width: 280px; 
+	padding: 20px; 
+	border: 2px inset; 
+	border-radius: 4px; 
+}
+#buttonAdjustcolor{
+	background-color: #408080;
+	margin-left: 70px; 
+}
+#buttonAdjustcolor:hover{
+	background-color: #b3e4ad;
+	color: #b00f2f;
+}
+.quotes{
+	position: absolute; 
+	left: 300px; 
+	bottom: 360px; 
+	font-size: 23px; 
+	top: 120px; 
+	font-family: 'Pathway Gothic One', sans-serif;
+	color: gold; 
+}
+#quote1{
+	margin: 20px; 
+	margin-left: 80px; 
+}
+#quote2{
+	margin: -20px; 
+	margin-left: 30px; 
+}
+#quote3{
+	margin: 60px; 
+	
+}
